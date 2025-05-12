@@ -158,6 +158,8 @@ void draw() {
       vy = random(-10, 10);
       ballx = width / 2;
       bally = height / 2;
+       vx=0;
+      vy=0;
       success.play();
     }
   }
@@ -170,6 +172,8 @@ void draw() {
       vy = random(-10, 10);
       ballx = width / 2;
       bally = height / 2;
+      vx=0;
+      vy=0;
       success.play();
     }
   }
