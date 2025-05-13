@@ -89,14 +89,14 @@ void draw() {
   fill(color3);
   circle(x2, y2, d2);
 
-  if (aKey) x -= 10;
-  if (dKey) x += 10;
-  if (wKey) y -= 10;
-  if (sKey) y += 10;
-  if (a2Key) x2 -= 10;
-  if (d2Key) x2 += 10;
-  if (w2Key) y2 -= 10;
-  if (s2Key) y2 += 10;
+  if (aKey) x -= 15;
+  if (dKey) x += 15;
+  if (wKey) y -= 15;
+  if (sKey) y += 15;
+  if (a2Key) x2 -= 15;
+  if (d2Key) x2 += 15;
+  if (w2Key) y2 -= 15;
+  if (s2Key) y2 += 15;
 
   if (dist(x, y, ballx, bally) <= d / 2 + balld / 2) {
     if (green) {
@@ -158,7 +158,7 @@ void draw() {
       vy = random(-10, 10);
       ballx = width / 2;
       bally = height / 2;
-       vx=0;
+      vx=0;
       vy=0;
       success.play();
     }
