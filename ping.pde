@@ -1,16 +1,16 @@
-//color black = #001219;
-//color DB = #005f73;
-//color ldb = #0a9396;
-//color lb = #94d2bd;
-//color midwhite = #e9d8a6;
-//color yellow = #ee9b00;
-//color orange = #ca6702;
-//color or = #bb3e03;
+color black = #001219;
+color DB = #005f73;
+color ldb = #0a9396;
+color lb = #94d2bd;
+color midwhite = #e9d8a6;
+color yellow = #ee9b00;
+color orange = #ca6702;
+color or = #bb3e03;
 //color red = #ae2012;
-//color dr = #9b2226;
-//color white = #FFFFFF;
-//color B = #000000;
-//color grey = #7C7B7A;
+color dr = #9b2226;
+color white = #FFFFFF;
+color B = #000000;
+color grey = #7C7B7A;
 
 color blue = #335c67;
 color lightyellow = #fff3b0;
@@ -149,10 +149,6 @@ void drawGame() {
 
 
 
-void drawPause() {
-  textAlign(CENTER, CENTER);
-  text("Paused - Click to keep playing", width/2, height/2);
-}
 
 
 void drawGameOver() {
@@ -165,9 +161,26 @@ void drawGameOver() {
  
 
 } else {
-    text("arrow keys win", width/2, height/2 - 50);
+       text("arrow keys win", width/2, height/2 - 50);
   }
   text("Click to return to Menu", width/2, height/2 + 50);
+}
+
+void drawPause() {
+  textAlign(CENTER, CENTER);
+  text("Paused - Click to keep playing", width/2, height/2);
+}
+
+
+
+
+void drawButton(float x, float y, String label) {
+  rectMode(CENTER);
+  fill(midwhite);
+
+  rect(x, y, 150, 50, 10);
+  fill(B);
+  text(label, x, y);
 }
 
 
@@ -183,17 +196,17 @@ void checkWin() {
   }
 }
 
-void drawButton(float x, float y, String label) {
-  rectMode(CENTER);
-  fill(70);
 
-  rect(x, y, 150, 50, 10);
-  fill(255);
-  text(label, x, y);
+void keyPressed() {
+
+
+  if (key == 'w') wPressed = true;
+  if (key == 's') sPressed = true;
+
+
+  if (keyCode == UP) upPressed = true;
+  if (keyCode == DOWN) downPressed = true;
 }
-
-
-
 
 void mousePressed() {
   if (mode.equals("intro")) {
@@ -229,17 +242,6 @@ boolean overButton(float x, float y) {
   return mouseX > x - 75 && mouseX < x + 75 && mouseY > y - 25 && mouseY < y + 25;
 }
 
-void keyPressed() {
-
-
-  if (key == 'w') wPressed = true;
-  if (key == 's') sPressed = true;
-
-
-  if (keyCode == UP) upPressed = true;
-  if (keyCode == DOWN) downPressed = true;
-}
-
 
 void keyReleased() {
 
@@ -251,7 +253,7 @@ void keyReleased() {
 }
 
 class Paddle {
-  float x, y, w = 20, h = 100, speed = 5;
+  float x, y, w = 20, h = 100, speed = 15;
 
   Paddle(float x) {
     this.x = x;
@@ -280,7 +282,7 @@ class Paddle {
   void display() {
     ellipseMode(CORNER);
 
-    fill(200, 100, 100);
+    fill(ldb);
     ellipse(x, y, w, h);
   }
 }
@@ -329,7 +331,7 @@ class Ball {
   void display() {
   
     
-    fill(100, 200, 255);
+    fill(red);
     ellipse(x, y, r, r);
   }
 }
