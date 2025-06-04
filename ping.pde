@@ -272,8 +272,6 @@ class Paddle {
 
 
 
-
-
     if (b.y < y + h/2) y -= speed;
     if (b.y > y + h/2) y += speed;
     y = constrain(y, 0, height - h);
