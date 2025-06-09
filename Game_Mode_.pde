@@ -1,17 +1,17 @@
 
 void game() {
 fill(orange); 
-  ellipse(ballX, ballY, ballRadius*2, ballRadius*2);//game ball
+  ellipse(ballX, ballY, 35, 35);//game ball
  fill(ldb);
-  ellipse(50, leftY, paddleRadius*2, paddleRadius*2);
+  ellipse(50, leftY, 75, 75);
   fill(red);
-  ellipse(width - 50, rightY, paddleRadius*2, paddleRadius*2);
+  ellipse(width - 50, rightY, 75, 75);
   textSize(32);
   fill(midwhite); 
-  text(leftScore, width/4, 50);
-  text(rightScore, 3*width/4, 50);
+  text(leftScore, 275, 50);
+  text(rightScore, 525, 50);
 
-  // Ball movement
+  // Ball 
   if (delayCounter == 0) {
     ballX += ballSpeedX;
     ballY += ballSpeedY;
@@ -19,9 +19,9 @@ fill(orange);
     delayCounter--;
   }
 
-  // Paddle controls
-  if (wPressed) leftY -= paddleSpeed;
-  if (sPressed) leftY += paddleSpeed;
+  //  controls
+  if (wPressed) leftY -= random(3, 6);
+  if (sPressed) leftY += random(3, 6);
   if (!ai) {
     if (upPressed) rightY -= paddleSpeed;
     if (downPressed) rightY += paddleSpeed;
@@ -56,15 +56,15 @@ if (rightY > height - paddleRadius) rightY = height - paddleRadius;
     resetBall();
   }
 
-  // Win condition
+  // Win 
   if (leftScore == 3 || rightScore == 3) mode = 3;
 }
 void resetBall() {
   ballX = width/2;
   ballY = height/2;
-  ballSpeedX = random(3, 5) * (random(1) < 0.5 ? 1 : -1);
-  ballSpeedY = random(-2, 2);
-  delayCounter = 100;
+  ballSpeedX = random(2, 5) ;
+  ballSpeedY = random(2, 5);
+  delayCounter = 78;
 }
 
 void resetGame() {
