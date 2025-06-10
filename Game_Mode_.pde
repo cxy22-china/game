@@ -39,12 +39,12 @@ if (rightY < paddleRadius) rightY = paddleRadius;
 if (rightY > height - paddleRadius) rightY = height - paddleRadius;
 
 
-  // Bounce ball off top/bottom
+  // Bounce ball 
   if (ballY < ballRadius || ballY > height - ballRadius) ballSpeedY *= -1;
 
-  // Paddle collision
-  if (dist(ballX, ballY, 50, leftY) < ballRadius + paddleRadius) ballSpeedX *= -1;
-  if (dist(ballX, ballY, width - 50, rightY) < ballRadius + paddleRadius) ballSpeedX *= -1;
+  // Paddle 
+  if (dist(ballX, ballY, 50, leftY) <  paddleRadius) ballSpeedX *= -1;
+  if (dist(ballX, ballY, width- 50, rightY) <  paddleRadius) ballSpeedX *= -1;
 
   // Scoring
   if (ballX < 0) {
@@ -64,7 +64,7 @@ void resetBall() {
   ballY = height/2;
   ballSpeedX = random(2, 5) ;
   ballSpeedY = random(2, 5);
-  delayCounter = 78;
+  delayCounter = 87;
 }
 
 void resetGame() {
